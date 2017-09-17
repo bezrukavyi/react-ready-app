@@ -1,0 +1,29 @@
+/* Size */
+$footer_height: 100px;
+
+$border: (
+  light: 2px,
+  medium: 3px,
+  bold: 4px
+);
+
+/* Fonts */
+$font-logo: Quicksand, sans-serif;
+$font: Roboto, sans-serif;
+$bold: 500;
+$bolder: 600;
+$light: 300;
+
+$border_radius: 2px;
+
+/* Screen */
+$screen-xs: 480px !default;
+$screen-sm: 768px !default;
+$screen-md: 992px !default;
+$screen-lg: 1200px !default;
+
+/* Transition */
+$transition: (
+  ease: 0.2s ease,
+  cubic: 0.3s cubic-bezier(0.4, 0.885, 0.32, 1.275)
+)

@@ -1,0 +1,38 @@
+html, body {
+  @include box-sizing(border-box);
+  color: color(black-100);
+  * {
+    font-family: $font;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  padding: 0;
+  list-style-type: none;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: color(black-200);
+}

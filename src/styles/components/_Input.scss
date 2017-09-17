@@ -1,0 +1,86 @@
+.input__form {
+  background: color(white-100);
+  box-shadow: none;
+  border: 0;
+  border-bottom: map-get($border, light) solid color(black-200);
+  padding: 20px 0;
+  border-radius: $border_radius;
+  background: transparent;
+  color: color(black-100);
+  transition: map-get($transition, cubic);
+
+  &::placeholder {
+    color: color(black-200);
+  }
+
+  &.black__theme {
+    color: color(black-100);
+
+    &:focus {
+      border-color: color(black-100);
+
+      &::placeholder {
+        color: color(black-100);
+      }
+    }
+  }
+
+  &.blue__theme {
+    @include input-focus-theme(blue-100);
+  }
+
+  &.orange__theme {
+    @include input-focus-theme(orange-100);
+  }
+
+  &.purple__theme {
+    @include input-focus-theme(purple-100);
+  }
+
+  &.yellow__theme {
+    @include input-focus-theme(yellow-100);
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &.error__theme {
+    @include input-default-theme(color(red-100));
+    @include input-focus-theme(color(red-100));
+  }
+}
+
+.input__message {
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+
+  &.input__message--show {
+    display: block;
+  }
+
+  &.input__message--error {
+    color: color(red-100);
+  }
+}
+
+.form-group {
+  position: relative;
+  padding-top: 25px;
+
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &.label__off {
+    padding-top: 0;
+    position: inherit;
+
+    label {
+      position: inherit;
+    }
+  }
+}

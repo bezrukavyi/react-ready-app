@@ -1,0 +1,82 @@
+.btn {
+  padding: 8px 12px;
+  margin: 0;
+  font-size: 14px;
+  border-width: map-get($border, light);
+  background: transparent;
+  color: color(black-200);
+  border-color: color(black-200);
+  border-radius: 4px;
+  transition: map-get($transition, cubic);
+
+  &:hover {
+    background: transparent;
+  }
+
+  &:focus {
+    color: color(black-100);
+    outline: none !important;
+  }
+
+  &.black__theme {
+    color: color(black-100);
+    border-color: color(black-100);
+  }
+
+  &.blue__theme {
+    @include button-theme(blue-100);
+  }
+
+  &.green__theme {
+    @include button-theme(green-100);
+  }
+
+  &.red__theme {
+    @include button-theme(red-100);
+  }
+
+  &.purple__theme {
+    @include button-theme(purple-100);
+  }
+
+  &.orange__theme {
+    @include button-theme(orange-100);
+  }
+
+  &.yellow__theme {
+    @include button-theme(yellow-100);
+  }
+
+  &.pink__theme {
+    @include button-theme(pink-100);
+  }
+
+  &.white__theme {
+    @include button-theme(white-100);
+  }
+}
+
+button {
+  @extend .btn;
+}
+
+.ladda-button {
+  @extend .btn;
+}
+
+.ladda-label {
+  transition: none !important;
+}
+
+.btn-hint {
+  color: color(black-200);
+  background: color(white-100) !important;
+  padding: 0;
+  border: 0;
+  text-decoration: underline;
+  margin-top: -1px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 115%;
+  width: auto;
+}

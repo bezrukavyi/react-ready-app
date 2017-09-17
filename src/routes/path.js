@@ -1,0 +1,6 @@
+export const ROOT = '/'
+export const SIGN_UP = '/signup'
+export const SIGN_IN = '/signin'
+export const AUTHED = '/authed'
+export const ERROR_404 = '/404'
+export const ERROR_500 = '/500'

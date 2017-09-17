@@ -1,0 +1,62 @@
+.form-control {
+  transition: map-get($transition, cubic);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form__auth {
+  background: color(white-100);
+  color: color(black-300);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.07);
+  padding: 20px 40px 30px;
+  border-radius: $border_radius;
+
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  button.btn-default {
+    color: color(white-100);
+  }
+
+  .btn-default {
+    background: color(black-300);
+  }
+
+  @media (max-width: $screen-sm) {
+    border-radius: 0;
+  }
+}
+
+.form__submit {
+  margin-top: 35px;
+}
+
+.form__auth--landing {
+  @media (max-width: $screen-sm) {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.form__hint {
+  color: rgba(0,0,0,0.44);
+  margin: 0 10px;
+}
+
+.footer__icons {
+  a {
+    margin-right: 15px;
+
+    &:hover {
+      color: color(black-200);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

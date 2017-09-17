@@ -1,0 +1,44 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin button-theme($color) {
+  &:hover, &.active {
+    border-color: color($color);
+    color: color($color);
+  }
+
+  &.constant {
+    border-color: color($color);
+    color: color($color);
+  }
+}
+
+@mixin icon-theme($color) {
+  &:hover, &.active {
+    color: color($color);
+  }
+  .icon-wrap:hover & {
+    color: color($color);
+  }
+  &.constant {
+    color: color($color);
+  }
+}
+
+@mixin input-focus-theme($color) {
+  &:focus {
+    @include input-default-theme($color);
+  }
+}
+
+@mixin input-default-theme($color) {
+  border-color: color($color);
+
+  & + label {
+    color: color($color);
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "react-template",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.16.2",
+    "bootstrap-sass": "^3.3.7",
+    "classnames": "^2.2.5",
+    "compass-mixins": "^0.12.10",
+    "data.maybe": "^1.2.2",
+    "data.task": "^3.1.1",
+    "dot-prop-immutable": "^1.3.1",
+    "normalize-json-api": "^0.1.0",
+    "normalizr": "^3.2.3",
+    "prop-types": "^15.5.10",
+    "ramda": "^0.24.1",
+    "react": "^15.5.4",
+    "react-cryptocoins": "^1.0.2",
+    "react-datepicker": "^0.53.0",
+    "react-dom": "^15.5.4",
+    "react-feather": "^1.0.4",
+    "react-ga": "^2.2.0",
+    "react-ladda": "^5.0.7",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.2",
+    "react-router-dom": "^4.1.1",
+    "react-router-redux": "^5.0.0-alpha.1",
+    "redux": "^3.7.0",
+    "redux-form": "^6.6.1",
+    "redux-logger": "^3.0.6",
+    "reselect": "^3.0.1",
+    "react-helmet": "^5.1.3",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.0.2",
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/styles/dist",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/styles/dist --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "PORT=3002 npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

@@ -1,0 +1,17 @@
+.oauth-providers {
+  margin-top: 25px;
+
+  .oauth-button {
+    padding: 5px;
+    margin-right: 10px;
+    min-width: 100px;
+
+    &:hover {
+      @extend .black__theme;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
