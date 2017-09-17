@@ -25,7 +25,7 @@ const request = (method, path, action, payload) => (dispatch, getState) => {
     .then((response) => {
       dispatch({
         type: action + SUCCESS,
-        payload: { ...response, data: camelCaseKeys(response.data) }
+        payload: { ...response, data: camelCaseKeys(response.data.data || response.data) }
       });
 
       return response;

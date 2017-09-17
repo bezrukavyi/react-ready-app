@@ -14,7 +14,7 @@ const headersKeys = [
   'uid',
 ]
 
-const extractAccessHeaders = pick(headersKeys)
+export const extractAccessHeaders = pick(headersKeys)
 
 export const setAccessHeaders = (headers) => {
   return {
@@ -22,8 +22,6 @@ export const setAccessHeaders = (headers) => {
     payload: headers,
   }
 }
-
-export const removeAccessHeaders = () => storage.remove('authData')
 
 export const checkAuthCredentials = () => {
   const urlHeaders = pickBy(urlParams(headersKeys, true), (value, key) => !isNil(value))
@@ -33,6 +31,7 @@ export const checkAuthCredentials = () => {
 const auth = (dispatch, path, type, data) =>
   dispatch(Api.post(`${path}`, type, { data }))
   .then((response) => {
+    debugger
     const accessHeaders = extractAccessHeaders(response.headers)
     storage.set('authData', accessHeaders)
     return response
@@ -47,9 +46,12 @@ export const signup = (data) => (dispatch) =>
 export const validateToken = () => {
   return Api.get('auth/validate_token', VALIDATE_TOKEN, {})
 }
+
 export const signout = () => (dispatch) => {
   Promise.resolve(dispatch({type: USER_SIGNOUT})).then(response => {
     storage.remove('authData')
-    return dispatch(replace(path.AUTHED))
+    return dispatch(replace(path.ROOT))
   })
 }
+
+export const removeAccessHeaders = () => storage.remove('authData')

@@ -1,4 +1,5 @@
 import React from 'react'
+import { isEmpty } from 'lodash'
 import { replace } from 'react-router-redux'
 
 import Route from './Route'
@@ -11,7 +12,9 @@ import Layouts from 'components/Layouts'
 const UnAuthRoute = ({ layout, match, path, component: Component, ...rest }) => {
   const accessHeaders = User.selectors.accessHeaders()
 
-  if (accessHeaders) {
+  debugger
+
+  if (!isEmpty(accessHeaders)) {
     store.dispatch(User.actions.validateToken())
     .then(response => store.dispatch(replace(appPath.AUTHED)))
     .catch(reject => {
@@ -22,9 +25,9 @@ const UnAuthRoute = ({ layout, match, path, component: Component, ...rest }) => 
 
   return (
     <Route path={path} {...rest} render={props => (
-      accessHeaders
-      ? <Preloader loading={true} />
-      : <Component { ...props} />
+      isEmpty(accessHeaders)
+      ? <Component { ...props} />
+      : <Preloader loading={true} />
     )}/>
   )
 }
