@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
-import { Github, Facebook, Chrome } from 'react-feather'
+import * as Feather from 'react-feather'
 
 import OAuthButton from './Component'
 
 const providersIcons = {
-  'github': Github,
-  'facebook': Facebook,
-  'google_oauth2': Chrome,
+  'github': Feather.Github,
+  'facebook': Feather.Facebook,
+  'google_oauth2': Feather.Chrome,
 }
 
 const redirectToProvider = (provider) => {

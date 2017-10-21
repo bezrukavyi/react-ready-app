@@ -28,6 +28,12 @@ const SignInForm = ({ handleSubmit, error, submitting }) =>
         <Buttons.Simple className='btn-link btn-hint' as={Link} to={path.SIGN_UP}>
           sign up
         </Buttons.Simple>
+
+        <span className='form__hint'></span>
+
+        <Buttons.Simple className='btn-link btn-hint' as={Link} to={path.FORGOT_PASSWORD}>
+          forgot password?
+        </Buttons.Simple>
       </div>
     </form>
 

@@ -1,11 +1,13 @@
 import React from 'react'
+import { isFunction } from 'lodash'
 import { Route as ReactRoute } from 'react-router'
 import Helmet from 'react-helmet'
 
 import * as Text from 'constants/Text'
 import meta from './meta'
 
-const Route = ({ path, ...rest }) => {
+const Route = ({ path, beforeAction, ...rest }) => {
+  if (isFunction(beforeAction)) { beforeAction() }
   const metaInfo = meta[path]
 
   return (

@@ -9,6 +9,7 @@ export default {
   [path.ROOT]: metaInfo(Text.DESCRIPTION),
   [path.SIGN_IN]: metaInfo('Sign in'),
   [path.SIGN_UP]: metaInfo('Sign up'),
+  [path.FORGOT_PASSWORD]: metaInfo('Forgot password'),
   [path.ERROR_404]: metaInfo('Not Found'),
-  [path.ERROR_500]: metaInfo('Error')
+  [path.ERROR_500]: metaInfo('Error'),
 }

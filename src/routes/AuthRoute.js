@@ -9,12 +9,13 @@ import * as appPath from './path'
 import { Preloader } from 'components'
 import Layouts from 'components/Layouts'
 
-const AuthRoute = ({ layout, match, path, component: Component, successCallback, ...rest }) => {
+const AuthRoute = ({ layout, match, path, component: Component, onSuccess, ...rest }) => {
+  User.actions.checkAuthCredentials()
   const user = User.selectors.entity()
 
   if (!user) {
     store.dispatch(User.actions.validateToken())
-    .then(response => isFunction(successCallback) ? store.dispatch(successCallback(response)) : response)
+    .then(response => isFunction(onSuccess) ? store.dispatch(onSuccess(response)) : response)
     .then(response => store.dispatch(replace(match)))
     .catch(reject => store.dispatch(replace(appPath.ROOT)))
   }

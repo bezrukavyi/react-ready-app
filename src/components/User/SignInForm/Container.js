@@ -2,22 +2,27 @@ import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import { replace } from 'react-router-redux'
 
-import { history } from 'store'
 import { signin } from 'store/User/actions'
 import * as path from 'routes/path'
 import SigninForm from './Component'
 import { formAdapter } from 'utils'
+
+const mapStateToProps = (state, ownProps) => ({
+  form: 'User.SigninForm',
+})
 
 const mapDispatchToProps = {
   signin,
   onSuccess: () => replace(path.AUTHED)
 }
 
-const mergeProps = (_, dispatchProps, ownProps) => ({
+const mergeProps = (stateProps, dispatchProps, ownProps) => ({
+  ...stateProps,
+  ...dispatchProps,
   ...ownProps,
   onSubmit: formAdapter(data => dispatchProps.signin(data).then(response => dispatchProps.onSuccess()))
 })
 
-const reduxSignInForm = reduxForm({ form: 'User.SigninForm' })(SigninForm)
+const reduxSignInForm = reduxForm({})(SigninForm)
 
-export default connect(null, mapDispatchToProps, mergeProps)(reduxSignInForm)
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(reduxSignInForm)

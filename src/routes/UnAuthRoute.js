@@ -12,8 +12,6 @@ import Layouts from 'components/Layouts'
 const UnAuthRoute = ({ layout, match, path, component: Component, ...rest }) => {
   const accessHeaders = User.selectors.accessHeaders()
 
-  debugger
-
   if (!isEmpty(accessHeaders)) {
     store.dispatch(User.actions.validateToken())
     .then(response => store.dispatch(replace(appPath.AUTHED)))
