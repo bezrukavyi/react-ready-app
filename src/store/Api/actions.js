@@ -10,7 +10,7 @@ const request = (method, path, action, payload) => (dispatch, getState) => {
   });
 
   const headers = User.selectors.accessHeaders(getState())
-  const baseURL = process.env.REACT_APP_DOMAIN
+  const baseURL = process.env.REACT_APP_API_DOMAIN
 
   const config = {
     baseURL,

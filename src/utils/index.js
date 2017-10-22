@@ -4,7 +4,9 @@ import { isObject, isArray, transform, pickBy, isEmpty, isNil } from 'lodash'
 import formAdapter, { errorRedirect } from 'utils/formAdapter'
 import map from 'utils/map'
 import set from 'utils/set'
+import fileName from 'utils/fileName'
 import deepTransform, { camelCaseKeys, snakeCaseKeys } from 'utils/deepTransformKeys'
+import * as storage from 'utils/storage'
 
 const createReducer = (initialState, defs) => (state = initialState, { type, payload }) => {
   const defsFunction = defs[type]
@@ -40,5 +42,7 @@ export {
   deepTransform,
   camelCaseKeys,
   snakeCaseKeys,
-  set
+  set,
+  storage,
+  fileName,
 }

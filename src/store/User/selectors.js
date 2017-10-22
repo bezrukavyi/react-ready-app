@@ -1,4 +1,4 @@
-import * as storage from 'storage'
+import { storage } from 'utils'
 import { get } from 'dot-prop-immutable'
 import { store } from 'store'
 

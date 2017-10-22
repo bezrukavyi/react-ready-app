@@ -10,7 +10,7 @@ const providersIcons = {
 }
 
 const redirectToProvider = (provider) => {
-  window.location.assign(`${process.env.REACT_APP_DOMAIN}/auth/${provider.toLowerCase()}`)
+  window.location.assign(`${process.env.REACT_APP_API_DOMAIN}/auth/${provider.toLowerCase()}`)
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

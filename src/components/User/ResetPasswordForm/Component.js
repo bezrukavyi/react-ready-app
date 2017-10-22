@@ -9,8 +9,8 @@ const ResetPasswordForm = ({ handleSubmit, error, submitting }) =>
     <form onSubmit={handleSubmit}>
       <h2>Reset password</h2>
 
-      <Fields.Input className='black__theme' type='password' name='password' />
-      <Fields.Input className='black__theme' type='password' name='passwordConfirmation' />
+      <Fields.Input className='black__theme' type='password' name='password' placeholder='password' />
+      <Fields.Input className='black__theme' type='password' name='passwordConfirmation' placeholder='password confirmation' />
 
       {error &&
         <Alert type='danger'>

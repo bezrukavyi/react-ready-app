@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { map } from 'utils'
+import { map } from 'lodash'
 import { Field } from 'redux-form'
 
 const Select = ({ input, label, placeholder, options, type }) => (
@@ -13,9 +13,9 @@ const Select = ({ input, label, placeholder, options, type }) => (
       className='form-control'
       placeholder={placeholder}
     >
-      {map(({ text, value }) =>
+      {map(options, (text, value) =>
         <option key={value} value={value}>{text}</option>
-      , options)}
+      )}
     </select>
   </div>
 )
