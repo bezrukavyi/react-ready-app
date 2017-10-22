@@ -1,4 +1,4 @@
-import * as path from './path'
+import * as path from 'constants/Path'
 import * as Text from 'constants/Text'
 
 const prefix = (name) => `${Text.LOGO} | ${name}`

@@ -4,7 +4,7 @@ import { replace } from 'react-router-redux'
 
 import { history } from 'store'
 import User from 'store/User'
-import * as path from 'routes/path'
+import * as path from 'constants/Path'
 import UpdatePasswordForm from './Component'
 import { formAdapter } from 'utils'
 

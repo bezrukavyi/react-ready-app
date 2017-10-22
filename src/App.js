@@ -4,10 +4,10 @@ import { Router, IndexRoute, Switch } from 'react-router'
 import { ConnectedRouter } from 'react-router-redux'
 
 import User from 'store/User'
-import { AuthRoute, UnAuthRoute, Route } from 'routes'
+import { AuthRoute, UnAuthRoute, MetaRoute as Route } from 'routes'
 import Layouts from 'components/Layouts'
 import Pages from 'components/Pages'
-import * as Path from 'routes/path'
+import * as Path from 'constants/Path'
 
 export default ({ store, history }) =>
   <Provider store={store}>

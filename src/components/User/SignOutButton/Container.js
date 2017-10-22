@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form'
 import { replace } from 'react-router-redux'
 
 import { signout } from 'store/User/actions'
-import * as path from 'routes/path'
+import * as path from 'constants/Path'
 import Component from './Component'
 import { formAdapter } from 'utils'
 

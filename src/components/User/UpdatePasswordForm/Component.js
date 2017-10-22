@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Alert, Fields, Buttons } from 'components'
 import { Link } from 'react-router-dom'
-import * as path from 'routes/path'
+import * as path from 'constants/Path'
 
 const UpdatePasswordForm = ({ handleSubmit, error, submitting }) =>
   <div className='form__auth'>

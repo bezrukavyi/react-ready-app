@@ -5,7 +5,7 @@ import lifecycleConnect from 'lifecycle-connector'
 
 import { history } from 'store'
 import User from 'store/User'
-import * as path from 'routes/path'
+import * as path from 'constants/Path'
 import ResetPasswordForm from './Component'
 import { formAdapter } from 'utils'
 

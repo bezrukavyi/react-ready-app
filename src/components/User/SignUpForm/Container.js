@@ -4,7 +4,7 @@ import { replace } from 'react-router-redux'
 
 import { history } from 'store'
 import { signup } from 'store/User/actions'
-import * as path from 'routes/path'
+import * as path from 'constants/Path'
 import SignUpForm from './Component'
 import { formAdapter } from 'utils'
 

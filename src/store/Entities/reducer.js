@@ -3,13 +3,13 @@ import { SUCCESS } from '../Api/types'
 
 const entities = (state = {}, { type, payload }) => {
   switch (type) {
-    // case balance.BALANCES_LIST + SUCCESS:
-    // case balance.BALANCE_GET + SUCCESS:
-    // case balance.BALANCE_CREATE + SUCCESS:
-    // case balance.BALANCE_UPDATE + SUCCESS: {
+    // case MY_ENTITY_LIST + SUCCESS:
+    // case MY_ENTITY_GET + SUCCESS:
+    // case MY_ENTITY_CREATE + SUCCESS:
+    // case MY_ENTITY_UPDATE + SUCCESS: {
     //   return utils.complement(state, payload.data)
     // }
-    // case balance.BALANCE_DESTROY + SUCCESS: {
+    // case MY_ENTITY_DESTROY + SUCCESS: {
     //   return utils.slice(state, payload.data)
     // }
     default:

@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form'
 import { replace } from 'react-router-redux'
 
 import { signin } from 'store/User/actions'
-import * as path from 'routes/path'
+import * as path from 'constants/Path'
 import SigninForm from './Component'
 import { formAdapter } from 'utils'
 

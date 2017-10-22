@@ -5,7 +5,7 @@ import { cond, pipe, identity, chain, T, toPairs, capitalize, lowerCase } from '
 import { isArray, transform, isNil, isString, join } from 'lodash'
 
 
-import * as Path from 'routes/path'
+import * as Path from 'constants/Path'
 import { store } from 'store'
 import map from 'utils/map'
 import { camelCaseKeys } from 'utils/deepTransformKeys'

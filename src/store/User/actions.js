@@ -6,7 +6,7 @@ import Api from '../Api/actions'
 import urlParams, { fetchUrlParam } from 'utils/urlParams'
 import { SUCCESS } from '../Api/types'
 import * as storage from 'storage'
-import * as path from 'routes/path'
+import * as path from 'constants/Path'
 
 const headersKeys = [
   'token',

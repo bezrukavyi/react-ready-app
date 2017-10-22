@@ -2,10 +2,10 @@ import React from 'react'
 import { isEmpty } from 'lodash'
 import { replace } from 'react-router-redux'
 
-import Route from './Route'
+import Route from './MetaRoute'
 import { store } from 'store'
 import User from 'store/User'
-import * as appPath from './path'
+import * as appPath from 'constants/Path'
 import { Preloader } from 'components'
 import Layouts from 'components/Layouts'
 

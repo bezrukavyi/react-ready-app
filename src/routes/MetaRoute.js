@@ -4,11 +4,11 @@ import { Route as ReactRoute } from 'react-router'
 import Helmet from 'react-helmet'
 
 import * as Text from 'constants/Text'
-import meta from './meta'
+import Meta from 'constants/Meta'
 
 const Route = ({ path, beforeAction, ...rest }) => {
   if (isFunction(beforeAction)) { beforeAction() }
-  const metaInfo = meta[path]
+  const metaInfo = Meta[path]
 
   return (
     <div>
