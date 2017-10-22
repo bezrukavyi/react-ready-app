@@ -4,14 +4,8 @@ import { store } from 'store'
 
 const getEntities = () => store.getState().entities
 
-export const all = (type) => {
-  return values(get(getEntities(), `${type}.byId`))
-}
+export const all = (type) => values(get(getEntities(), `${type}.byId`))
 
-export const allIds = (type) => {
-  return values(get(getEntities(), `${type}.allIds`))
-}
+export const allIds = (type) => values(get(getEntities(), `${type}.allIds`))
 
-export const byId = (type, id) => {
-  return get(getEntities(), `${type}.byId.${id}`)
-}
+export const byId = (type, id) => get(getEntities(), `${type}.byId.${id}`)

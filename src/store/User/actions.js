@@ -5,7 +5,7 @@ import * as Types from './types'
 import Api from '../Api/actions'
 import urlParams, { fetchUrlParam } from 'utils/urlParams'
 import { SUCCESS } from '../Api/types'
-import * as storage from 'storage'
+import { storage } from 'utils'
 import * as path from 'constants/Path'
 
 const headersKeys = [
