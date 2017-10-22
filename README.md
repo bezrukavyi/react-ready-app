@@ -23,6 +23,8 @@ Next steps...
   npm install
 ````
 
+## [Example project](https://github.com/bezrukavyi/to_do_react)
+
 ## What packages will you get?
 
 * [react](https://github.com/facebook/react)
@@ -38,9 +40,9 @@ Next steps...
 * [ramda](https://github.com/ramda/ramda)
 * [lodash](https://github.com/lodash/lodash)
 
-##  What ready things will you get?
+## What ready things will you get?
 
-* [App structure](#react-redux-structure)
+* [App structure](#app-structure)
 * [React structure](#react-structure)
 * [Redux store structure](#reducers)
   - [Reducers](#reducers)
@@ -48,15 +50,6 @@ Next steps...
   - [Selectors](#selectors)
 * [Environment varibales](#environment-varibales)
 * [API connecting](#api-connecting)
-* [Styles structure](#styles-structure)
-* [User authentication flow](#user-authentication-flow)
-  - Sign in
-  - Sign up
-  - OAuth
-  - Sign out
-  - Forgot password
-  - Reset password
-  - Update password
 * [Routes](#routes)
   - [AuthRoute](#authroute)
   - [UnAuthRoute](#unauthroute)
@@ -64,6 +57,8 @@ Next steps...
 * [Redux-form components](#redux-form-components)
   - [Fields](#fields)
   - [Form button](#form-button)
+* [User authentication flow](#user-authentication-flow)
+* [Styles structure](#styles-structure)
 
 ## App structure
 
@@ -91,7 +86,7 @@ You will get ready directories structure, which looks like:
 | `components` | Components and containers
 | `constants`  | Constants which you use in your project
 | `routes`     | Custom routes
-| `store`      | Logic which related with redux store (**reducers**, **selectors**, **actions**)
+| `store`      | Logic which related with redux store (**reducers**, **selectors**, **actions**, **types**)
 | `styles`     | SCSS files
 | `utils`      | Your project helpers utils
 
@@ -112,7 +107,7 @@ You will get structure for work react components
 │   │      └─ index.js
 ```
 
-### Usage
+#### Usage
 In ```components/SignInForm/index.js```
 
 ```javascript
@@ -168,13 +163,13 @@ You will get structure for work with redux store logic
 │   └─ ...
 ```
 
-### Reducers
+#### Reducers
 You will get ready reducers for ```User``` and ```Entities```.
 Reducer ```Entities``` adapted for any entities which you get from response in [json-api](http://jsonapi.org/) format
 
 [Example](https://github.com/bezrukavyi/to_do_react/blob/master/src/store/Entities/reducer.js)
 
-### Usage
+#### Usage
 In ```src/store/Entities/reducer.js```
 
 ```javascript
@@ -195,7 +190,7 @@ const entities = (state = {}, { type, payload }) => {
 export default entities
 ```
 
-#### Response
+##### Response
 
 ```json
 {
@@ -256,7 +251,7 @@ export default entities
 }
 ```
 
-#### Store
+##### Store
 
 ```json
 {
@@ -279,13 +274,13 @@ export default entities
 }
 ```
 
-### Actions
+#### Actions
 Write [actions](https://github.com/bezrukavyi/to_do_react/blob/master/src/store/Entities/Project/actions.js) for special entity.
 
-### Selectors
+#### Selectors
 You will get ready selectors for work with entities.
 
-#### Usage
+##### Usage
 
 In ```src/store/Entities/selectors.js```
 
@@ -322,7 +317,7 @@ You will get opportunity to use environment variables
 └─ .env.dev
 ```
 
-### Usage
+#### Usage
 
 In ```.env```
 
@@ -337,10 +332,10 @@ process.env.REACT_APP_MY_VARIABLE // return "SOME VARIABLE"
 
 ## Api connecting
 
-You will get ready RESTful [actions](https://github.com/bezrukavyi/react-ready-app-template/blob/master/src/store/Api/actions.js#L43) for request to your API.
+You will get ready HTTP [methods](https://github.com/bezrukavyi/react-ready-app/blob/master/src/store/Api/actions.js#L43) for request to your API.
 All response keys will be **converted** to comfortable ```CamelCase``` format.
 
-### Usage
+#### Usage
 
 Set API url in `.env`
 
@@ -354,6 +349,88 @@ import * as Types from './types'
 
 export const postAction = (data) => Api.post('path', Types.ACTION_NAME, { data })
 ```
+
+## Routes
+You will get ready routes, like that:
+
+#### AuthRoute
+Use for path where must be only authenticated user
+
+In ```src/App.js```
+```javascript
+...
+<AuthRoute path={Path.UPDATE_PASSWORD} component={Pages.UpdatePassword} />
+...
+```
+
+#### UnAuthRoute
+Use for path where authenticated user mustn't be
+
+In ```src/App.js```
+```javascript
+...
+<UnAuthRoute path={Path.ROOT} component={Pages.SignIn} exact />
+<UnAuthRoute path={Path.SIGN_UP} component={Pages.SignUp} exact />
+...
+```
+
+#### MetaRoute
+Add to pages meta info by their path. Based by [react-helmet](https://github.com/nfl/react-helmet).
+[Configuration example](https://github.com/bezrukavyi/react-ready-app/blob/master/src/constants/Meta.js) of meta info by path.
+
+## Redux-form components
+You will get ready components for which work with [redux-form](https://github.com/erikras/redux-form)
+
+#### Fields
+[Fields](https://github.com/bezrukavyi/react-ready-app/tree/master/src/components/Fields) contain components for form fields, like that: ```input```, ```textarea```, ```select```, ```file```
+
+```javascript
+import React from 'react'
+
+import { Fields } from 'components'
+
+const SomeForm = ({ handleSubmit, error, submitting }) =>
+  <form onSubmit={handleSubmit}>
+    <Fields.Input name='title' type='text' placeholder='input' />
+    <Fields.FileInput name='file' type='file' placeholder='file' />
+    <Fields.Textarea name='textarea' type='text' placeholder='textarea' />
+    <Fields.Select name='select' type='text' placeholder='select' options={{
+      'option_name_1': 'option_value_1',
+      'option_name_2': 'option_value_2',
+    }}/>
+    ...
+  </form>
+
+export default SomeForm
+```
+
+#### Form button
+[Form button](https://github.com/bezrukavyi/react-ready-app/blob/master/src/components/Buttons/Form.js) based by [react-ladda](https://github.com/jsdir/react-ladda) and adapted to [redux-form](https://github.com/erikras/redux-form)
+
+```javascript
+import React from 'react'
+
+import { Buttons } from 'components'
+
+const SomeForm = ({ handleSubmit, error, submitting }) =>
+  <form onSubmit={handleSubmit}>
+    ...
+
+    <Buttons.Form className='black__theme' type='submit' loading={submitting} text='Submit' />
+  </form>
+
+export default SomeForm
+```
+
+#### User authentication flow
+You will get ready standard user authentication flows, like that:
+- Sign in
+- Sign up
+- OAuth
+- Sign out
+- Forgot password
+- Reset password
+- Update password
 
 
 ## Styles structure
@@ -379,78 +456,6 @@ In ```App.scss``` include all your styles
 @import 'components/Form.scss';
 @import 'components/Landing.scss';
 @import 'components/Input.scss';
-```
-
-## Routes
-You will get ready routes, like that:
-
-### AuthRoute
-Use for path where must be only authenticated user
-
-In ```src/App.js```
-```javascript
-...
-<AuthRoute path={Path.UPDATE_PASSWORD} component={Pages.UpdatePassword} />
-...
-```
-
-### UnAuthRoute
-Use for path where authenticated user mustn't be
-
-In ```src/App.js```
-```javascript
-...
-<UnAuthRoute path={Path.ROOT} component={Pages.SignIn} exact />
-<UnAuthRoute path={Path.SIGN_UP} component={Pages.SignUp} exact />
-...
-```
-
-### MetaRoute
-Add to pages meta info by their path. Based by [react-helmet](https://github.com/nfl/react-helmet).
-Example configured [meta info](https://github.com/bezrukavyi/react-ready-app-template/blob/master/src/constants/Meta.js) by path.
-
-## Redux-form components
-You will get ready components for which work with [redux-form](https://github.com/erikras/redux-form)
-
-### Fields
-[Fields](https://github.com/bezrukavyi/react-ready-app-template/tree/master/src/components/Fields) contain components for form fields, like that: input, textarea, select, file
-
-```javascript
-import React from 'react'
-
-import { Fields } from 'components'
-
-const SomeForm = ({ handleSubmit, error, submitting }) =>
-  <form onSubmit={handleSubmit}>
-    <Fields.Input name='title' type='text' placeholder='input' />
-    <Fields.FileInput name='file' type='file' placeholder='file' />
-    <Fields.Textarea name='textarea' type='text' placeholder='textarea' />
-    <Fields.Select name='select' type='text' placeholder='select' options={{
-      'option_name_1': 'option_value_1',
-      'option_name_2': 'option_value_2',
-    }}/>
-    ...
-  </form>
-
-export default SomeForm
-```
-
-### Form button
-[Form button](https://github.com/bezrukavyi/react-ready-app-template/blob/master/src/components/Buttons/Form.js) based by [react-ladda](https://github.com/jsdir/react-ladda) and adapted to [redux-form](https://github.com/erikras/redux-form)
-
-```javascript
-import React from 'react'
-
-import { Buttons } from 'components'
-
-const SomeForm = ({ handleSubmit, error, submitting }) =>
-  <form onSubmit={handleSubmit}>
-    ...
-
-    <Buttons.Form className='black__theme' type='submit' loading={submitting} text='Submit' />
-  </form>
-
-export default SomeForm
 ```
 
 ## License
