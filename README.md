@@ -4,7 +4,7 @@ Based by [create-react-app](https://github.com/facebookincubator/create-react-ap
 
 ## Quick start
 ```bash
-git clone git@github.com:bezrukavyi/react-ready-app.git
+git clone https://github.com/bezrukavyi/react-ready-app.git
 
 cd react-ready-app
 
