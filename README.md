@@ -4,6 +4,7 @@ Based by [create-react-app](https://github.com/facebookincubator/create-react-ap
 
 ## Installation
 ```bash
+npm install -g craftool
 npm install -g react-ready-app
 ````
 
