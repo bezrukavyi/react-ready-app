@@ -2,26 +2,13 @@
 
 Based by [create-react-app](https://github.com/facebookincubator/create-react-app)
 
-## Installation
-```bash
-npm install -g craftool
-npm install -g react-ready-app
-````
-
 ## Quick start
-Write in your terminal next command ```create-react-ready-app```
-
 ```bash
-create-react-ready-app
+git clone git@github.com:bezrukavyi/react-ready-app.git
 
-In which directory to create the template?
-MyProject
+cd react-ready-app
 
-✔ Success
-
-Next steps...
-  cd MyProject
-  npm install
+npm install
 ````
 
 ## [Example project](https://github.com/bezrukavyi/to_do_react)
