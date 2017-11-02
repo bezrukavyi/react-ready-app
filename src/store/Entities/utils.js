@@ -41,8 +41,8 @@ const sliceEnities = (state, entities, name) => {
 
   return {
     ...stateEntities,
-    byId: pickBy(stateEntities.byId, ({ id }) => !keys(entities).map(Number).includes(id)),
-    allIds: uniq(filter(stateEntities.allIds, (id) => !keys(entities).includes(id))),
+    byId: pickBy(stateEntities.byId, ({ id }) => !keys(entities).map(Number).includes(Number(id))),
+    allIds: uniq(filter(stateEntities.allIds, (id) => !keys(entities).map(Number).includes(Number(id)))),
   }
 }
 
